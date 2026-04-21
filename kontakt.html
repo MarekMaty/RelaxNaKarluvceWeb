@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontakt Relax Studio Nošovice — telefon, e-mail, otevírací doba a mapa.">
+  <title>Kontakt — Relax Studio Nošovice</title>
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<div class="site-nav-wrap" id="nav-wrap">
+  <nav class="site-nav" aria-label="Hlavní navigace">
+    <a href="/index.html" class="nav-logo">
+      <svg class="nav-logo-glyph" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path d="M11 18C11 18 5 14.5 5 9.5C5 7.015 7.239 5 11 5C14.761 5 17 7.015 17 9.5C17 14.5 11 18 11 18Z" fill="#8B6F47" opacity="0.55"/>
+        <path d="M11 18C11 18 7 12 7 8.5C7 6.5 8.8 5 11 5" stroke="#8B6F47" stroke-width="1" fill="none"/>
+        <path d="M11 18C11 18 15 12 15 8.5C15 6.5 13.2 5 11 5" stroke="#8B6F47" stroke-width="1" fill="none"/>
+        <line x1="11" y1="5" x2="11" y2="18" stroke="#8B6F47" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+      <span class="nav-logo-text">Relax Studio</span>
+    </a>
+    <ul class="nav-menu" role="list">
+      <li><a href="/o-nas.html">O nás</a></li>
+      <li><a href="/sluzby.html">Služby</a></li>
+      <li><a href="/galerie.html">Galerie</a></li>
+      <li><a href="/tym.html">Tým</a></li>
+      <li><a href="/kontakt.html" class="active">Kontakt</a></li>
+    </ul>
+    <a href="tel:+420776085480" class="nav-cta">
+      Zavolat nám
+      <span class="nav-cta-arrow" aria-hidden="true">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#3D4A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+    <button class="nav-hamburger" aria-label="Otevřít menu" aria-expanded="false" id="hamburger-btn">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-mobile-menu" id="mobile-menu">
+      <a href="/o-nas.html">O nás</a>
+      <a href="/sluzby.html">Služby</a>
+      <a href="/galerie.html">Galerie</a>
+      <a href="/tym.html">Tým</a>
+      <a href="/kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+</div>
+
+<main class="page-body">
+  <header class="page-hero">
+    <p class="page-hero__eyebrow">Jsme tu pro vás</p>
+    <h1 class="page-hero__title">Kontakt</h1>
+    <p class="page-hero__sub">Zavolejte nebo napište — rádi vám termín potvrdíme osobně.</p>
+  </header>
+
+  <section class="section" aria-label="Kontaktní informace">
+
+    <div class="contact-hero-card reveal">
+      <div class="contact-tile" data-copy="+420776085480" tabindex="0" role="button" aria-label="Zkopírovat telefonní číslo">
+        <div class="contact-tile__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6a2 2 0 012-2h1.9a1 1 0 01.93.64l1.3 3.25a1 1 0 01-.3 1.19L8.4 10.5a12 12 0 005.1 5.1l1.42-1.43a1 1 0 011.19-.3l3.25 1.3a1 1 0 01.64.93V18a2 2 0 01-2 2A14 14 0 014 6z" stroke="#8B6F47" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="contact-tile__label">Telefon</span>
+        <span class="contact-tile__value">+420 776 085 480</span>
+        <span class="copy-hint">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 3V2a1 1 0 00-1-1H2a1 1 0 00-1 1v5a1 1 0 001 1h1" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
+          Klikněte pro zkopírování
+        </span>
+        <a href="tel:+420776085480" class="contact-tile__cta" onclick="event.stopPropagation()">
+          Zavolat
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="contact-tile" data-copy="info@relaxnakarluvce.cz" tabindex="0" role="button" aria-label="Zkopírovat e-mailovou adresu">
+        <div class="contact-tile__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="#8B6F47" stroke-width="1.5"/>
+            <path d="M3 7l9 6 9-6" stroke="#8B6F47" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="contact-tile__label">E-mail</span>
+        <span class="contact-tile__value">info@relaxnakarluvce.cz</span>
+        <span class="copy-hint">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M8 3V2a1 1 0 00-1-1H2a1 1 0 00-1 1v5a1 1 0 001 1h1" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
+          Klikněte pro zkopírování
+        </span>
+        <a href="mailto:info@relaxnakarluvce.cz" class="contact-tile__cta" onclick="event.stopPropagation()">
+          Napsat e-mail
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="info-row">
+      <div class="info-block-simple reveal">
+        <h2 class="info-block-simple__title">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" stroke="#8B6F47" stroke-width="1.5"/>
+            <path d="M11 7v4l3 2" stroke="#8B6F47" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Otevírací doba
+        </h2>
+        <table class="hours-table" id="hours-table">
+          <tr data-day="1"><td>Pondělí</td><td>9:00 – 20:00</td></tr>
+          <tr data-day="2"><td>Úterý</td><td>9:00 – 20:00</td></tr>
+          <tr data-day="3"><td>Středa</td><td>9:00 – 20:00</td></tr>
+          <tr data-day="4"><td>Čtvrtek</td><td>9:00 – 20:00</td></tr>
+          <tr data-day="5"><td>Pátek</td><td>9:00 – 20:00</td></tr>
+          <tr data-day="6"><td>Sobota</td><td>9:00 – 17:00</td></tr>
+          <tr data-day="0"><td>Neděle</td><td>10:00 – 16:00</td></tr>
+        </table>
+      </div>
+
+      <div class="info-block-simple reveal reveal-delay-1">
+        <h2 class="info-block-simple__title">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path d="M11 20s-6-6-6-11a6 6 0 1112 0c0 5-6 11-6 11z" stroke="#8B6F47" stroke-width="1.5"/>
+            <circle cx="11" cy="9" r="2.4" fill="#8B6F47" opacity="0.55"/>
+          </svg>
+          Adresa
+        </h2>
+        <address style="font-style:normal; font-size:15px; color:var(--charcoal); line-height:1.8;">
+          <strong style="font-weight:600;">Relax Studio</strong><br>
+          Nošovice 13<br>
+          739 51 Nošovice<br>
+          Česká republika
+        </address>
+        <a class="contact-tile__cta" style="margin-top:20px;" href="https://www.google.com/maps/dir/?api=1&destination=No%C5%A1ovice+13%2C+739+51+No%C5%A1ovice" target="_blank" rel="noopener">
+          Naplánovat trasu
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="map-wrap reveal" style="margin-top:56px;">
+      <iframe
+        class="map-embed"
+        src="https://www.google.com/maps?q=No%C5%A1ovice+13,+739+51+No%C5%A1ovice&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa — Relax Studio Nošovice 13"
+        aria-label="Mapa polohy Relax Studio, Nošovice 13"
+      ></iframe>
+      <a class="map-address-chip" href="https://www.google.com/maps/search/?api=1&query=No%C5%A1ovice+13%2C+739+51+No%C5%A1ovice" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 13s-4-4-4-7a4 4 0 118 0c0 3-4 7-4 7z" stroke="currentColor" stroke-width="1.4"/><circle cx="7" cy="6" r="1.5" fill="currentColor"/></svg>
+        Nošovice 13, 739 51
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/index.html" class="nav-logo">
+        <svg class="nav-logo-glyph" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <path d="M11 18C11 18 5 14.5 5 9.5C5 7.015 7.239 5 11 5C14.761 5 17 7.015 17 9.5C17 14.5 11 18 11 18Z" fill="#D4A96A" opacity="0.55"/>
+          <path d="M11 18C11 18 7 12 7 8.5C7 6.5 8.8 5 11 5" stroke="#D4A96A" stroke-width="1" fill="none"/>
+          <path d="M11 18C11 18 15 12 15 8.5C15 6.5 13.2 5 11 5" stroke="#D4A96A" stroke-width="1" fill="none"/>
+          <line x1="11" y1="5" x2="11" y2="18" stroke="#D4A96A" stroke-width="0.8" opacity="0.5"/>
+        </svg>
+        <span class="nav-logo-text">Relax Studio</span>
+      </a>
+      <p>Masáže, kosmetika a wellness v Nošovicích.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigace</h4>
+      <ul>
+        <li><a href="/o-nas.html">O nás</a></li>
+        <li><a href="/sluzby.html">Služby</a></li>
+        <li><a href="/galerie.html">Galerie</a></li>
+        <li><a href="/tym.html">Tým</a></li>
+        <li><a href="/kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Služby</h4>
+      <ul>
+        <li><a href="/sluzby.html#masaze">Masáže</a></li>
+        <li><a href="/sluzby.html#kosmetika">Kosmetika</a></li>
+        <li><a href="/sluzby.html#wellness">Wellness</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <address>
+        Nošovice 13<br>739 51 Nošovice<br>Česká republika<br><br>
+        <a href="tel:+420776085480">+420 776 085 480</a><br>
+        <a href="mailto:info@relaxnakarluvce.cz">info@relaxnakarluvce.cz</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Relax Studio. Všechna práva vyhrazena.</span>
+    <span>Nošovice, Česká republika</span>
+  </div>
+</footer>
+
+<script type="module" src="/src/js/main.js"></script>
+<script>
+  // Highlight today's row in the hours table
+  const today = new Date().getDay();
+  const row = document.querySelector(`#hours-table tr[data-day="${today}"]`);
+  if (row) row.classList.add('today');
+</script>
+</body>
+</html>

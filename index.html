@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relax Studio — Masáže & Kosmetika</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #F7F1E8;
+      --cream-2:   #EDE5D8;
+      --charcoal:  #2B2620;
+      --warm-gray: #6B5D4F;
+      --bronze:    #8B6F47;
+      --terracotta:#B8745A;
+      --sage:      #3D4A3A;
+      --overlay:   rgba(245, 236, 224, 0.22);
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO SECTION ────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── VIDEO ───────────────────────────────────────────── */
+    .hero__video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-color: #2a2017;
+    }
+    .hero__bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(0.55) saturate(1.05);
+      animation: bgShimmer 14s ease-in-out infinite alternate;
+    }
+    .hero__bg-tint {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(139,111,71,0.35) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 30%, rgba(184,116,90,0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 55% 80%, rgba(61,74,58,0.35) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    @keyframes bgShimmer {
+      0%   { filter: brightness(0.55) saturate(1.05); }
+      50%  { filter: brightness(0.60) saturate(1.10); }
+      100% { filter: brightness(0.52) saturate(1.03); }
+    }
+    .hero__video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--overlay);
+      z-index: 1;
+    }
+    /* subtle warm vignette at bottom for text contrast */
+    .hero__vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 110%, rgba(43,38,32,0.45) 0%, transparent 65%);
+      z-index: 2;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    .nav-wrap {
+      position: relative;
+      z-index: 10;
+      padding: 24px 20px 0;
+    }
+    nav {
+      background: var(--cream);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(90,70,50,0.08), 0 1px 4px rgba(90,70,50,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      gap: 16px;
+    }
+
+    /* Logo */
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav__logo-glyph {
+      width: 22px;
+      height: 22px;
+      opacity: 0.75;
+      flex-shrink: 0;
+    }
+    .nav__logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    /* Menu */
+    .nav__menu {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav__menu a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--warm-gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav__menu a:hover { color: var(--charcoal); }
+    .nav__menu a:focus-visible {
+      outline: 2px solid var(--bronze);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* CTA Button */
+    .nav__cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--sage);
+      color: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 9px 10px 9px 18px;
+      border-radius: 100px;
+      transition: background 0.22s, transform 0.18s;
+      flex-shrink: 0;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
+    .nav__cta:hover { background: #2e3829; transform: translateY(-1px); }
+    .nav__cta:active { transform: translateY(0); }
+    .nav__cta:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+
+    .nav__cta-arrow {
+      width: 30px;
+      height: 30px;
+      background: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.22s;
+    }
+    .nav__cta:hover .nav__cta-arrow { background: var(--cream-2); }
+    .nav__cta-arrow svg { transform: rotate(-45deg); }
+
+    /* Hamburger */
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .nav__hamburger:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+
+    /* Mobile menu */
+    .nav__mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: var(--cream);
+      border-radius: 0 0 16px 16px;
+      padding: 16px 20px 20px;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: 0 8px 24px rgba(90,70,50,0.10);
+    }
+    .nav__mobile-menu.open { display: flex; }
+    .nav__mobile-menu a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--warm-gray);
+      text-decoration: none;
+      padding: 10px 4px;
+      border-bottom: 1px solid rgba(107,93,79,0.12);
+    }
+    .nav__mobile-menu a:last-child { border-bottom: none; }
+
+    /* ── HERO CONTENT ────────────────────────────────────── */
+    .hero__content {
+      position: relative;
+      z-index: 5;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 72px;
+      gap: 0;
+    }
+
+    .hero__eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      color: var(--bronze);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      opacity: 0.9;
+    }
+
+    .hero__headline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 28px;
+    }
+    .hero__line1 {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+      line-height: 1.05;
+      text-shadow: 0 2px 24px rgba(43,38,32,0.18);
+    }
+    .hero__line2 {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(52px, 7.5vw, 90px);
+      font-weight: 400;
+      color: #D4A96A;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 32px rgba(43,38,32,0.22);
+    }
+
+    .hero__sub {
+      font-family: 'Barlow', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(247, 241, 232, 0.82);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 44px;
+      text-shadow: 0 1px 12px rgba(43,38,32,0.25);
+      letter-spacing: 0.01em;
+    }
+
+    .hero__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(247, 241, 232, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--charcoal);
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      padding: 16px 28px 16px 22px;
+      border-radius: 100px;
+      border: 1.5px solid rgba(139,111,71,0.18);
+      transition: background 0.22s, border-color 0.22s, transform 0.18s, box-shadow 0.22s;
+      cursor: pointer;
+    }
+    .hero__cta:hover {
+      background: rgba(255,255,255,0.97);
+      border-color: rgba(139,111,71,0.28);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(43,38,32,0.14);
+    }
+    .hero__cta:active { transform: translateY(0); }
+    .hero__cta:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
+
+    .hero__cta-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--sage);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.22s;
+    }
+    .hero__cta:hover .hero__cta-icon { background: #2e3829; }
+
+    /* ── SCROLL INDICATOR ────────────────────────────────── */
+    .hero__scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.55;
+      animation: scrollBob 2.4s ease-in-out infinite;
+    }
+    .hero__scroll span {
+      font-family: 'Barlow', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--cream);
+      text-transform: uppercase;
+    }
+    @keyframes scrollBob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(5px); }
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav__menu { display: none; }
+      .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
+      nav { position: relative; }
+
+      .hero__content { padding: 60px 20px 80px; }
+      .hero__sub { font-size: 15px; max-width: 100%; }
+      .hero__cta { width: 100%; max-width: 320px; justify-content: center; }
+    }
+
+    /* ── REDUCED MOTION ──────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .hero__video-wrap video { display: none; }
+      .hero__video-wrap { background: #3d3028; }
+      .hero__scroll { animation: none; }
+      * { transition-duration: 0.01ms !important; }
+    }
+
+    /* ── CONTENT FADE-IN ─────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero__eyebrow  { animation: fadeUp 0.8s ease both 0.3s; }
+    .hero__headline { animation: fadeUp 0.9s ease both 0.5s; }
+    .hero__sub      { animation: fadeUp 0.8s ease both 0.75s; }
+    .hero__cta      { animation: fadeUp 0.8s ease both 0.95s; }
+    .hero__scroll   { animation: fadeUp 0.6s ease both 1.3s, scrollBob 2.4s 2s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+
+<section class="hero" aria-label="Úvodní sekce">
+
+  <!-- Video Background (falls back to still image) -->
+  <div class="hero__video-wrap">
+    <img class="hero__bg-img" src="/hero/spa-bg.jpg" alt="" aria-hidden="true">
+    <div class="hero__bg-tint" aria-hidden="true"></div>
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"
+      aria-hidden="true"
+    >
+      <!-- Drop your spa video file here, e.g.: -->
+      <!-- <source src="spa-hero.mp4" type="video/mp4"> -->
+    </video>
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__vignette" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <div class="nav-wrap">
+    <nav aria-label="Hlavní navigace">
+      <!-- Logo -->
+      <a href="#" class="nav__logo" aria-label="Relax Studio — domovská stránka">
+        <svg class="nav__logo-glyph" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Lotus / leaf glyph -->
+          <path d="M11 18C11 18 5 14.5 5 9.5C5 7.015 7.239 5 11 5C14.761 5 17 7.015 17 9.5C17 14.5 11 18 11 18Z" fill="#8B6F47" opacity="0.55"/>
+          <path d="M11 18C11 18 7 12 7 8.5C7 6.5 8.8 5 11 5" stroke="#8B6F47" stroke-width="1" fill="none"/>
+          <path d="M11 18C11 18 15 12 15 8.5C15 6.5 13.2 5 11 5" stroke="#8B6F47" stroke-width="1" fill="none"/>
+          <line x1="11" y1="5" x2="11" y2="18" stroke="#8B6F47" stroke-width="0.8" opacity="0.5"/>
+        </svg>
+        <span class="nav__logo-text">Relax Studio</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="nav__menu" role="list">
+        <li><a href="o-nas.html">O nás</a></li>
+        <li><a href="sluzby.html">Služby</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="tym.html">Tým</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+
+      <!-- Desktop CTA -->
+      <a href="kontakt.html" class="nav__cta" aria-label="Rezervovat termín">
+        Rezervovat termín
+        <span class="nav__cta-arrow" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#3D4A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Hamburger -->
+      <button class="nav__hamburger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-menu" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Mobile Menu -->
+      <div class="nav__mobile-menu" id="mobile-menu" role="menu">
+        <a href="o-nas.html" role="menuitem">O nás</a>
+        <a href="sluzby.html" role="menuitem">Služby</a>
+        <a href="galerie.html" role="menuitem">Galerie</a>
+        <a href="tym.html" role="menuitem">Tým</a>
+        <a href="kontakt.html" role="menuitem">Kontakt</a>
+        <a href="kontakt.html" role="menuitem" style="color: var(--sage); font-weight: 600; border-bottom: none; margin-top: 8px;">Rezervovat termín →</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="hero__content">
+    <p class="hero__eyebrow">Praha · Od roku 2015</p>
+
+    <div class="hero__headline">
+      <span class="hero__line1">Dopřejte si chvíli</span>
+      <span class="hero__line2">opravdového klidu</span>
+    </div>
+
+    <p class="hero__sub">
+      Masáže, kosmetika a péče o tělo v srdci města — od roku 2015
+    </p>
+
+    <a href="sluzby.html" class="hero__cta" aria-label="Prohlédnout naše služby">
+      <span class="hero__cta-icon" aria-hidden="true">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+          <path d="M3 6.5H10M10 6.5L7 3.5M10 6.5L7 9.5" stroke="#F7F1E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      Prohlédnout služby
+    </a>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+      <rect x="1" y="1" width="14" height="18" rx="7" stroke="#F7F1E8" stroke-width="1.2"/>
+      <rect x="7" y="5" width="2" height="5" rx="1" fill="#F7F1E8"/>
+    </svg>
+  </div>
+
+</section>
+
+<script type="module" src="/src/js/main.js"></script>
+<script>
+  // Disable video if prefers-reduced-motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    const vid = document.querySelector('.hero__video-wrap video');
+    if (vid) { vid.pause(); vid.removeAttribute('autoplay'); }
+  }
+</script>
+
+</body>
+</html>
